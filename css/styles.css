@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+/* // <uniquifier>: Use a unique and descriptive class name */
+/* // <weight>: Use a value from 100 to 900 */
+
+.outfit-medium {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  --yellow: #f2b137;
+  --teal: #31c3bd;
+  --background: #1b2a33;
+  --silver: #a8bfc9;
+  --semi-dark-navy: #1f3641;
+  --shadow-blue: #10212a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--silver);
+  font-family: "Outfit";
+}
+.main-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+form {
+  background-color: var(--semi-dark-navy);
+  border: none;
+  border-radius: 10px;
+  display: grid;
+  width: 460px;
+  height: 205px;
+  margin: auto;
+  grid-template-rows: 1fr, 1fr;
+  align-items: center;
+  align-content: space-around;
+  justify-content: center;
+}
+fieldset {
+  background-color: var(--background);
+  width: 412px;
+  height: 72px;
+  border-radius: 10px;
+  padding-bottom: 5rem;
+  margin: 0.5rem;
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+legend {
+  padding-bottom: 3rem;
+}
+#chooseX {
+  width: 198px;
+  height: 54px;
+  border-radius: 10px;
+  background-color: var(--background);
+  color: var(--silver);
+}
+#chooseO {
+  width: 198px;
+  height: 54px;
+  border-radius: 10px;
+  background-color: var(--silver);
+  color: var(--background);
+}
+.start-game {
+  width: 450px;
+  height: 67px;
+  margin-top: 6rem;
+  background-color: var(--yellow);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.fa-xmark {
+  color: var(--yellow);
+  font-size: 2rem;
+  font-weight: bolder ;
+}
+.fa-o {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.initialize-game-wrapper {
+    display: block;
+}
+
+.hide-board {
+  display: none;
+}
+
+.board-wrapper {
+  border: 1px green solid;
+  width: 30rem;
+  height: 40rem;
+  margin: auto;
+}
+.border-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.player-turn {
+  background-color: var(--semi-dark-navy);
+  width: 7rem;
+  height: 3rem;
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.reset-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+}
+.square-wrapper {
+  border: 2px purple solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+  /*   margin:auto; */
+  width: 100%;
+  height: 100%;
+}
+.box {
+  /*   border: 1px pink dotted; */
+  margin: auto;
+  height: 50%;
+  width: 80%;
+  border-radius: 10px;
+  background-color: var(--semi-dark-navy);
+  box-shadow: 0px 10px 10px #10212a;
+}
+.tally-section {
+  border: 1px orange dotted;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+.x-tally-wrapper {
+  background-color: var(--yellow);
+  color: var(--background);
+  border-radius: 10px;
+  display: grid;
+  justify-items: center;
+  align-content: space-around;
+  /*   align-items: center; */
+}
+.tie-tally-wrapper {
+  background-color: var(--silver);
+  color: var(--background);
+  border-radius: 10px;
+  display: grid;
+  justify-items: center;
+  align-content: space-around;
+}
+.o-tally-wrapper {
+  background-color: var(--teal);
+  color: var(--background);
+  border-radius: 10px;
+  display: grid;
+  justify-items: center;
+  align-content: space-around;
+}
+
+/* #winningBanner {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: #1E3642;
+} */
+
+
+/* below is not working for my winningBanner */
+.winning-banner {
+  position: absolute;
+  z-index: 1;
+  background: var(--semi-dark-navy);
+  top: 30rem;
+  width: 100%;
+  padding: 1rem;
+  transition: all 400ms;
+  display: grid;
+  grid-template-rows: auto auto auto; */
+grid-template-columns: 1fr 1fr; /*Two columns for the quit and next-round buttons */
+  background-color: #1e3642;
+  justify-items: center;
+  align-items: center;
+} 
+
+.quit {
+  font-family: "Outfit";
+  width: 76px;
+  height: 62px;
+  background-color: var(--silver);
+  color: var(--background);
+  border-radius: 10px;
+}
+.next-round {
+  font-family: "Outfit";
+  width: 146px;
+  height: 62px;
+  background-color: var(--yellow);
+  color: var(--background);
+  border-radius: 10px;
+}

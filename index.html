@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/b538338767.js" crossorigin="anonymous"></script>
+    <title>Tic-Tac-Toe
+    </title>
+</head>
+<body>
+<div class="main-page-wrapper">
+  <div>
+    <p class="icon"><i class="fa-solid fa-xmark"></i><i class="fa-solid fa-o"></i></p>
+  </div>
+  <div class="initialize-game-wrapper" id="initializeGameWrapper">
+    <form action="#" id="form">
+      <fieldset>
+        <legend>Pick Player 1's Mark</legend>
+
+        <label for="chooseX">
+          <input type="button" id="chooseX" name="chooseX" class="option" value="X">
+        </label>
+        <label for="chooseO">
+          <input type="button" id="chooseO" name="chooseO" class="option" value="O">
+        </label>
+      </fieldset>
+      <input type="submit" id="submit" class="start-game" name="submit" value="New Game (vs CPU)" />
+    </form>
+  </div>
+</div>
+<div class="board-wrapper hide-board" id="board">
+  <div class="border-header">
+    <p class="icon"><i class="fa-solid fa-xmark"></i><i class="fa-solid fa-o"></i></p>
+    <p class="player-turn" id="whosTurn"><i class="fa-solid fa-xmark"></i>&nbsp Turn</p>
+    <button class="reset-btn" id="resetBtn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+  </div>
+  <div class="square-wrapper">
+    <button value="0" class="box" id="0">&nbsp</button>
+    <button value="1" class="box" id="1">&nbsp</button>
+    <button value="2" class="box" id="2">&nbsp</button>
+    <button value="3" class="box" id="3">&nbsp</button>
+    <button value="4" class="box" id="4">&nbsp</button>
+    <button value="5" class="box" id="5">&nbsp</button>
+    <button value="6" class="box" id="6">&nbsp</button>
+    <button value="7" class="box" id="7">&nbsp</button>
+    <button value="8" class="box" id="8">&nbsp</button>
+  </div>
+  <div class="tally-section">
+    <div class="x-tally-wrapper">
+      <p class="x-wins">X</p>
+      <p class="x-tally" id="xTally">&nbsp</p>
+    </div>
+    <div class="tie-tally-wrapper">
+      <p class="tie-wins">Ties</p>
+      <p class="tie-tally" id="tieTally">&nbsp</p>
+    </div>
+    <div class="o-tally-wrapper">
+      <p class="o-wins">O</p>
+      <p class="o-tally" id="oTally">&nbsp</p>
+    </div>
+  </div>
+</div>
+<div class="hide-board">
+    <div class="winning-banner" id="winningBanner">
+      <p class="win-lose-stmt" id="winLoseStmt"></p>
+      <p class="winner-stmt" id="winnerStmt"></p>
+      <button class="quit" id="quit">Quit</button>
+      <button class="next-round" id="nextRound">Next Round</button>
+    </div>
+  </div>
+<script type="module" src="js/custom.js"></script>
+</body>
+</html>
