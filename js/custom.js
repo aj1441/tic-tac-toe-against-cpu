@@ -10,7 +10,7 @@ let whosTurn = document.getElementById("whosTurn");
 const reset = document.getElementById("resetBtn");
 const board = document.getElementById("board");
 const squares = document.querySelectorAll(".box");
-const winningBanner = document.getElementById("winningBanner");
+const winningBanner = document.getElementById("bannerWrapper");
 const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
