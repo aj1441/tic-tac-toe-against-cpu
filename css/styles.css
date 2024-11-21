@@ -96,6 +96,7 @@ legend {
 
 .hide-board {
   display: none;
+  align-items: center;
 }
 
 .board-wrapper {
@@ -136,24 +137,21 @@ legend {
   border-radius: 10px;
 }
 .square-wrapper {
-  /* border: 2px purple solid; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1rem;
-  /*   margin:auto; */
   width: 100%;
-  height: 100%;
+  height: 70%;
   gap: 0;
 }
 .box {
-  /*   border: 1px pink dotted; */
   margin: auto;
-  height: 50%;
+  height: 70%;
   width: 80%;
   border-radius: 10px;
   background-color: var(--semi-dark-navy);
   box-shadow: 0px 10px 10px #10212a;
+  text-transform: capitalize;
 }
 .tally-section {
   /* border: 1px orange dotted; */
@@ -188,20 +186,19 @@ legend {
   align-content: space-around;
 }
 
-/* #winningBanner {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  background-color: #1E3642;
-} */
+
 
 
 /* below is not working for my winningBanner */
 .winning-banner {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   background: var(--semi-dark-navy);
-  top: 30rem;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Adjust to center it */
+  width: 90%;
+  max-width: 660px;
   padding: 1rem;
   transition: all 400ms;
   display: grid;
@@ -211,31 +208,47 @@ grid-template-columns: 1fr 1fr; /*Two columns for the quit and next-round button
   justify-items: center;
   align-items: center;
   gap: 1rem;
+  border-radius: 10px; /* Add rounded corners for aesthetics */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 } 
-.win-lose-stmt {
-  grid-column: 1/3;
+
+.win-lose-stmt, .winner-stmt {
+  grid-column: 1 / -1; /* Span across all columns */
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 2.5rem); /* Responsive font size */
 }
 
-.winner-stmt {
-  grid-column: 1/3;
-  font-size: 3rem;
+.quit, .next-round {
+  font-family: "Outfit", sans-serif;
+  width: 100%; /* Full width within their grid cell */
+  max-width: 150px; /* Prevent them from becoming too wide */
+  height: auto; /* Allow height to adjust with width */
+  padding: 0.5rem 1rem; /* Add padding instead of fixed height */
+  color: var(--background);
+  border-radius: 10px;
+  text-align: center;
 }
 
 .quit {
-  font-family: "Outfit";
-  width: 76px;
-  height: 62px;
   background-color: var(--silver);
-  color: var(--background);
-  border-radius: 10px;
-  margin-left: 80%;
 }
+
 .next-round {
-  font-family: "Outfit";
-  width: 146px;
-  height: 62px;
   background-color: var(--yellow);
-  color: var(--background);
-  border-radius: 10px;
-  margin-right: 80%;
+}
+
+ /* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+  .winning-banner {
+    grid-template-columns: 1fr; /* Stack items in one column */
+    gap: 0.5rem;
+  }
+
+  .quit, .next-round {
+    max-width: 50%; /* Allow buttons to expand fully */
+  }
+
+  .winner-stmt {
+    font-size: clamp(1.2rem, 3vw, 2rem); /* Smaller font size */
+  }
 }
