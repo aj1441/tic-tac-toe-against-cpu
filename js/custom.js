@@ -6,7 +6,7 @@ let tally = {
   draw: 0,
   O: 0
 };
-let whosTurn = document.getElementById("whosTurn");
+const whosTurn = document.getElementById("whosTurn");
 const reset = document.getElementById("resetBtn");
 const board = document.getElementById("board");
 const squares = document.querySelectorAll(".box");
@@ -26,12 +26,14 @@ const winningCombos = [
 document.getElementById("chooseX").addEventListener("click", () => {
   playerSymbol = "X";
   currentPlayer = "X";
+  // whosTurn = "X";
   console.log("x", playerSymbol, currentPlayer);
 });
 // Event listener for "O" button
 document.getElementById("chooseO").addEventListener("click", () => {
   playerSymbol = "O";
   currentPlayer = "O";
+  // whosTurn = "O";
 });
 // Event listener for form submission
 const form = document.getElementById("form");
@@ -48,6 +50,7 @@ const onFormSubmit = (event) => {
   document.getElementById("initializeGameWrapper").style.display = "none"; //hides the div
   board.style.display = "block";
   winningBanner.style.display = "none";
+  whosTurn.textContent=`${currentPlayer} Turn`;
   form.reset();
   startGame();
 };
@@ -60,20 +63,30 @@ const startGame = () => {
 
 //--Below function will listen to see if the box is clicked and if so place the playerSymbol in that box and save that box value to playerArray-------//
 function boxClicked(event) {
+
   const box = event.target;
   const id = box.id;
   if (squaresArray[id] === "" && currentPlayer === playerSymbol) {
     //only allows a player to click if it is their turn//
     updateBox(box, id);
     if (!checkForWinner()) {
-      currentPlayer = currentPlayer == "X" ? "O" : "X";
+      console.log("code ran");
+
+      currentPlayer = currentPlayer == "X" ? "O" : "X"; //if the current player is equal to X the if it is True then the value after the ? "O" is assigned to current player, if it is False then the currentPlayer is assigned the value after : "X"
+      // whosTurn.textContent=`${currentPlayer} Turn`;
+      updateFontColor(currentPlayer)
+      console.log(whosTurn);
       // Delay the computer's turn
-      setTimeout(computerTurn, 1000); // 1000 milliseconds = 1 second
+      setTimeout(computerTurn, 2000); // 1000 milliseconds = 1 second
     }
   }
 }
+// ---need a function to have the whosTurn p change as the player changes------------------------//
+
+
 //-----below function will save the box it will place a symbol in the clicked box and save the array index number of that box  and save it to the current array---//
 function updateBox(box, index) {
+  // whosTurn.textContent=`${currentPlayer} Turn`;
   squaresArray[index] = currentPlayer;
   // inorder for the fontawsome to work here I need to change this from box.textContent to .innerHtml
   box.textContent = currentPlayer;
@@ -104,6 +117,9 @@ function computerTurn() {
     checkForWinner();
     //--below changes back to playerSymbol so game can continue-----//
     currentPlayer = playerSymbol;
+    // whosTurn.textContent=`${currentPlayer} Turn`;
+    updateFontColor(currentPlayer);
+
   }
 }
 
@@ -202,3 +218,20 @@ const nextRound = () => {
   board.style.display = "block";
 };
 
+// have the X or O in whosTurn change colors as the character changes--------------------------------------------------------------
+function updateFontColor(character) {
+  // Remove existing color classes
+  whosTurn.classList.remove("color-x", "color-o");
+
+  // Add appropriate color class based on the character
+  if (character === "X") {
+    whosTurn.classList.add("color-x");
+  } else if (character === "O") {
+    whosTurn.classList.add("color-o");
+  } else {
+    whosTurn.classList.add("color-default");
+  }
+
+  // Update the displayed character
+  whosTurn.textContent = `${character} Turn`;
+}
